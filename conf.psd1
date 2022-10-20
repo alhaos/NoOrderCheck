@@ -2,6 +2,7 @@
     Name         = "NoOrderCheck"
     NoOrderCheck = @{
         ConnectionString = "Data Source=192.168.101.222;Database=FINANCE;User Id=acif;Password=cipher-84T9u"
+        Query            = '.\resources\query.sql'
     }
     Services     = @{
         LogProvider = @{

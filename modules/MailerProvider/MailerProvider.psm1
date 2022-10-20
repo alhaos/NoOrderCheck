@@ -42,17 +42,19 @@ class MailerProvider {
         $this.Body.Clear()
     }
 
-    Send() {
+    Send($body) {
 
-        if ($this.Body.Length -eq 0) {
+        if ($Body.Length -eq 0) {
             return
         }
+
         $Message = [MimeMessage]::new()
         $Message.Body = [TextPart]@{
-            text = $this.Body -join [System.Environment]::NewLine
+            text = $body
         } 
+        $Message.To.Add("interfaces@accureference.com")
         $Message.To.Add("alhaos@gmail.com")
-        $Message.Subject = "Ahtunger test subj"
+        $Message.Subject = "Accession with empty order number found"
         $Message.From.Add($this.EmailFrom)
 
         try {
